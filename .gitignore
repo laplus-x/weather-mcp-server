@@ -1,37 +1,68 @@
-# Node.js dependencies
-node_modules/
+tmp
+backup
+public
 
-# Build output
-dist/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Environment variables
+### CONF ###
 .env
+*.eslintcache
+*.local
+*.dev
+*.stg
+*.prod
+*.toml
 
-# Logs
-logs/
+### LOG ###
+logs
 *.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
-# OS-specific files
+### DEPLOY ###
+*.tar
+*.exe
+*.blob
+
+### STS ###
+Makefile
+node_modules
+dev-dist
+dist
+dist-ssr
+build
+__tests__
+__snapshots__
+__inspect
+.inspect
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
 .DS_Store
-Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# IDE-specific files
-.vscode/
-.idea/
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Test coverage
-coverage/
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Temporary files
-*.tmp
-*.swp
-
-# npm package files
-package-lock.json
-yarn.lock
+### VS Code ###
+.qodo
+.vscode

@@ -17,7 +17,7 @@ setupTools(server)
 const app = express();
 setupTransports(server, app)
 
-const port = process.env.PORT || "3000";
+const port = process.env.PORT || "8080";
 app.listen(+port, () => {
   console.log(`MCP server is running on port ${port}`);
 });

@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
     "baseUrl": ".",
@@ -9,17 +11,15 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "declaration": true,
-    "declarationMap": true,
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": false,
+    
+    "esModuleInterop": true,
   },
   "include": ["src"]
 }
