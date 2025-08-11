@@ -35,13 +35,34 @@ npm run build
 ```
 
 ## Usage
+
 Development mode (auto-reload):
 
 ```bash
-npm run dev
+npm run start:dev
 ```
 
 The MCP server will run on the port specified in `.env` (default: 3000).
+
+## Docker Build & Debug (Taskfile)
+
+This project uses [Taskfile](https://taskfile.dev) for Docker image build and debug automation.
+
+### Build Docker Image
+```bash
+task build:image
+```
+Builds the Docker image using buildx and tags it with both the version and `latest`.
+
+### Debug Docker Image
+```bash
+task debug:image
+```
+Runs the Docker image in interactive mode with Bash, loads environment variables from `.env`, and adds `host.docker.internal:host-gateway` for easy host-container communication.
+
+**Requirements:**
+- Docker
+- Taskfile CLI
 
 ## API
 
