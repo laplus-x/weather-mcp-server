@@ -1,9 +1,9 @@
+import { OpenMeteo } from "@/repositories";
 import { Weather } from "@/usecases";
 import { Functions } from "@/utilities";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
 import { z } from "zod";
 
-const weather = new Weather()
 export const getCurrentWeather = (server: McpServer) => {
   server.tool(
     "get-current-weather",
@@ -13,7 +13,8 @@ export const getCurrentWeather = (server: McpServer) => {
     },
     async ({ city }) => {
       console.log(`Received request: city=${city}`);
-
+      
+      const weather = Weather.getInstance(OpenMeteo.getInstance())
       const { ok, val } = await Functions.wrapAsync<Awaited<ReturnType<typeof weather.getCurrentWeather>>, Error>(() => weather.getCurrentWeather(city))
       if (!ok) {
         return {

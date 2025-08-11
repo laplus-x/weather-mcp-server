@@ -54,6 +54,13 @@ export const WeatherCodeDesc: Record<number, string> = {
 } as const;
 
 export class OpenMeteo {
+    private static instance?: OpenMeteo;
+
+    public static getInstance() {
+        this.instance ??= new OpenMeteo();
+        return this.instance
+    }
+
     public async getGeo(city: string) {
         const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`
 

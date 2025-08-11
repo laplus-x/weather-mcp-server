@@ -1,7 +1,18 @@
 import { OpenMeteo, WeatherCodeDesc } from "@/repositories";
 
 export class Weather {
-    private readonly openMeteo = new OpenMeteo()
+    private readonly openMeteo: OpenMeteo;
+
+    private static instance?: Weather;
+
+    constructor(openMeteo: OpenMeteo) {
+        this.openMeteo = openMeteo
+    }
+
+    public static getInstance(openMeteo: OpenMeteo) {
+        this.instance ??= new Weather(openMeteo);
+        return this.instance
+    }
 
     private getClosestUtcIndex(hourlyTimes: number[]): number {
         const currentTime = Math.floor(Date.now() / 1000)
